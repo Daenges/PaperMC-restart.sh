@@ -9,6 +9,7 @@ MinecraftVersion="1.18.2"
 MAXRAM=1024M
 MINRAM=1024M
 RestartDelaySeconds=20
+RemoveOldBuilds=true
 
 ###
 
@@ -36,6 +37,10 @@ while [ true ]; do
     # Check if the current build is the latest.
     if [[ ! -f "./$LatestPaperBuildName" ]]; then
         echo "Installing latest build..."
+
+        if $RemoveOldBuilds ; then
+            rm ./paper-*.jar
+        ;fi
 
         # Download the latest .jar build of PaperMC
         curl -X 'GET' "https://papermc.io/api/v2/projects/paper/versions/$MinecraftVersion/builds/$BuildNum/downloads/$LatestPaperBuildName" -H 'accept: application/json' --output $LatestPaperBuildName
