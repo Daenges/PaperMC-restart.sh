@@ -8,7 +8,6 @@ This Bash script utilizes the [PaperMC API](https://papermc.io/api/docs) to obta
 4. **Open** it with a text editor and **enter** your parameters here:
 ```
 MinecraftVersion="1.18.2"
-PaperFileName="paper.jar"
 MAXRAM=1024M
 MINRAM=1024M
 RestartDelay=20
