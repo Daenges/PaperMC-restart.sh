@@ -40,7 +40,7 @@ while [ true ]; do
 
         if $RemoveOldBuilds ; then
             rm ./paper-*.jar
-        ;fi
+        fi
 
         # Download the latest .jar build of PaperMC
         curl -X 'GET' "https://papermc.io/api/v2/projects/paper/versions/$MinecraftVersion/builds/$BuildNum/downloads/$LatestPaperBuildName" -H 'accept: application/json' --output $LatestPaperBuildName
