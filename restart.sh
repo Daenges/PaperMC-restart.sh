@@ -6,7 +6,6 @@
 ###
 
 MinecraftVersion="1.18.2"
-PaperFileName="paper.jar"
 MAXRAM=1024M
 MINRAM=1024M
 RestartDelaySeconds=20
@@ -32,10 +31,17 @@ while [ true ]; do
     # Extract latest build NUMBER for $MinecraftVersion
     BuildNum=$(jq -r '.build' <<< "${API_Result}")
 
-    echo "Found Build: $BuildNum Name: $LatestPaperBuildName. Downloading..."
+    echo "Found Build: $BuildNum Name: $LatestPaperBuildName."
 
-    # Download the latest .jar build of PaperMC
-    curl -X 'GET' "https://papermc.io/api/v2/projects/paper/versions/$MinecraftVersion/builds/$BuildNum/downloads/$LatestPaperBuildName" -H 'accept: application/json' --output $PaperFileName
+    # Check if the current build is the latest.
+    if [[ ! -f "./$LatestPaperBuildName" ]]; then
+        echo "Installing latest build..."
+
+        # Download the latest .jar build of PaperMC
+        curl -X 'GET' "https://papermc.io/api/v2/projects/paper/versions/$MinecraftVersion/builds/$BuildNum/downloads/$LatestPaperBuildName" -H 'accept: application/json' --output $LatestPaperBuildName
+    else
+        echo "Latest build already installed."
+    fi
 
     ###
     # The following code comes from this genius: https://stackoverflow.com/a/62158802
@@ -45,7 +51,7 @@ while [ true ]; do
     echo "Starting PaperMC."
 
     # Start the paper.jar with the given java parameters.
-    java -Xmx$MAXRAM -Xms$MINRAM -jar $PaperFileName nogui
+    java -Xmx$MAXRAM -Xms$MINRAM -jar $LatestPaperBuildName nogui
 
     if [[ ! -d "exit_codes" ]]; then
             mkdir "exit_codes";
