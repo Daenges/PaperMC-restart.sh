@@ -11,6 +11,7 @@ MinecraftVersion="1.18.2"
 MAXRAM=1024M
 MINRAM=1024M
 RestartDelay=20
+RemoveOldBuilds=true
 ```
 5. **Save** the file.
 6. **Make** the script executable with `chmod +x restart.sh`.
