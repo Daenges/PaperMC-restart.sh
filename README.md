@@ -3,9 +3,9 @@ This Bash script utilizes the [PaperMC API](https://papermc.io/api/docs) to obta
 
 # Setup
 1. **Install** `jq` with your package manager. *(If not already installed.)*
-2. **Clone** this repository.
+2. **Download** `restart.sh` with `wget "https://raw.githubusercontent.com/Daenges/PaperMC-restart.sh/main/restart.sh"`.
 3. **Move** `restart.sh` in your server folder.
-4. **Open** it with a text editor and enter your parameters here.:
+4. **Open** it with a text editor and **enter** your parameters here:
 ```
 MinecraftVersion="1.18.2"
 PaperFileName="paper.jar"
