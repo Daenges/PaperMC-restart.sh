@@ -9,7 +9,7 @@ MinecraftVersion="1.18.2"
 PaperFileName="paper.jar"
 MAXRAM=1024M
 MINRAM=1024M
-RestartDelay=20 # in Seconds
+RestartDelaySeconds=20
 
 ###
 
@@ -54,8 +54,8 @@ while [ true ]; do
             touch "exit_codes/server_exit_codes.log";
         fi
         echo "[$(date +"%d.%m.%Y %T")] ExitCode: $?" >> exit_codes/server_exit_codes.log
-        echo "----- Press enter to prevent the server from restarting in $RestartDelay seconds -----";
-        read -t $RestartDelay input;
+        echo "----- Press enter to prevent the server from restarting in $RestartDelaySeconds seconds -----";
+        read -t $RestartDelaySeconds input;
         if [ $? == 0 ]; then
             break;
         else
