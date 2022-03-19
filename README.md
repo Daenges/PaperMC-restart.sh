@@ -1,7 +1,7 @@
 # restart.sh
 This Bash script utilizes the [PaperMC API](https://papermc.io/api/docs) to obtain the latest Paper build for your Minecraft version. On top of that, it features auto restart and error logging on crash, provided by [this fellow](https://stackoverflow.com/a/62158802). </br>
 
-**You do not care about all the extra stuff?**
+**You do not care about all the extra stuff?**</br>
 `download_latest_paper_build.sh` does what the name suggests. You can either set your minecraft version in the script itself or **parse it with an argument**, which predestines it to be **included in your own scripts**.
 
 # Setup
